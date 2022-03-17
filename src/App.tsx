@@ -10,18 +10,26 @@ function App() {
     fetchUsers();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  const fetchMoreUsers = () => {
+    fetchUsers();
+  };
 
   return (
     <div>
-      {users.map((user: Users) => (
-        <div key={user.id}>
-          <h1>
-            {user.name.title} {user.name.first} {user.name.last}
-          </h1>
-          <img src={user.picture.thumbnail} alt={user.name.first} />
-        </div>
-      ))}
+      {users.length > 0 &&
+        users.map((user: Users) => (
+          <div key={user.id}>
+            <h1>
+              {user.name.title} {user.name.first} {user.name.last}
+            </h1>
+            <img src={user.picture.thumbnail} alt={user.name.first} />
+          </div>
+        ))}
+      {loading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+      <button type="button" onClick={fetchMoreUsers}>
+        fetch more
+      </button>
     </div>
   );
 }
