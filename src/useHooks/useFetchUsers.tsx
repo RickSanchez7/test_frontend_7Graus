@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { FetchedUsers, Users } from '../interfaces/users';
 
-export const useFetchUsers = () => {
+export const useFetchUsers = (url: string) => {
   const [users, setUsers] = useState<Users[] | []>([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const fetchUsers = async () => {
+  const fetchUsers = () => {
     setLoading(true);
     setError('');
     setTimeout(async () => {
       try {
-        const response = await fetch('https://randomuser.me/api/?results=10');
+        const response = await fetch(url);
 
         const json = await response.json();
 

@@ -53,6 +53,9 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "prettier": "^2.6.0"
+    "jest-watch-typeahead": "^0.6.5",
+    "msw": "^0.39.2",
+    "prettier": "^2.6.0",
+    "whatwg-fetch": "^3.6.2"
   }
 }
