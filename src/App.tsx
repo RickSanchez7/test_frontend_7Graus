@@ -17,19 +17,19 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="container">
       {users.length > 0 &&
         users.map((user: Users, i: number) => (
-          <div key={user.id}>
-            <h1 data-testid={`test-${i}`}>
+          <div key={user.id} className="user-container">
+            <h2 className="user-name" data-testid={`test-${i}`}>
               {user.name.title} {user.name.first} {user.name.last}
-            </h1>
+            </h2>
             <img src={user.picture.thumbnail} alt={user.name.first} />
           </div>
         ))}
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      <button type="button" onClick={fetchMoreUsers}>
+      {loading && <p className="loading">Loading...</p>}
+      {error && <p className="error">{error}</p>}
+      <button type="button" className="btn" onClick={fetchMoreUsers}>
         fetch more
       </button>
     </div>
