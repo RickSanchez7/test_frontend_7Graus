@@ -1,4 +1,4 @@
-export interface Users {
+export interface User {
   name: {
     title: string;
     first: string;
@@ -12,17 +12,7 @@ export interface Users {
   id: string;
 }
 
-export interface FetchedUsers {
-  name: {
-    title: string;
-    first: string;
-    last: string;
-  };
-  picture: {
-    large: string;
-    medium: string;
-    thumbnail: string;
-  };
+export interface FetchedUser extends User {
   login: {
     uuid: string;
   };

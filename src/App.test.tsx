@@ -8,10 +8,10 @@ import user from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import App from './App';
-import { Users } from './interfaces/users';
+import { User } from './interfaces/users';
 
 const server = setupServer(
-  rest.get<Users>('https://randomuser.me/api/', (req, res, ctx) => {
+  rest.get<User>('https://randomuser.me/api/', (req, res, ctx) => {
     return res(
       ctx.json({
         results: [
